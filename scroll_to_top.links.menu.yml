@@ -1,0 +1,5 @@
+scroll_to_top.settings:
+  title: 'Scroll To top'
+  description: 'Config Scroll to top'
+  parent: system.admin_config
+  route_name: scroll_to_top.settings
