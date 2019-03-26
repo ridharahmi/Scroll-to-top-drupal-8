@@ -4,6 +4,6 @@ type: module
 package: Custom
 core: 8.x
 version: 8.x
-configure: scroll_to_top.from
+configure: scroll_to_top.form
 
 
