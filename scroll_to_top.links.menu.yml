@@ -1,0 +1,5 @@
+scroll_to_top.form:
+  title: 'Scroll To Top'
+  description: 'Back To Top adds a button that hovers in the bottom of your screen and allow users to smoothly scroll up the page using jQuery.'
+  parent: system.admin_config_ui
+  route_name: scroll_to_top.form
