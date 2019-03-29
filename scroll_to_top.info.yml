@@ -3,7 +3,8 @@ description: Scroll to top module.
 type: module
 package: Custom
 core: 8.x
-version: 8.x
+
+
 configure: scroll_to_top.form
 
 
