@@ -1,0 +1,12 @@
+scroll_to_top_style:
+  version: 1.x
+  css:
+    theme:
+      assets/css/scroll_to_top.css: {}
+
+  js:
+    assets/js/scroll_to_top.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
