@@ -11,50 +11,65 @@ function scroll_to_top_preprocess_page(&$variables)
     $admin_theme = \Drupal::config('system.theme')->get('admin');
     $config = \Drupal::config('scroll_to_top.settings');
 
+
     if ($config->get('scroll_to_top_enable_admin_theme') == TRUE || ($config->get('scroll_to_top_enable_admin_theme') == FALSE && ($theme != $admin_theme))) {
 
         $variables['#attached']['library'] = 'scroll_to_top/scroll_to_top_style';
 
         //building the css style
-        $position = "";
+        $css = '';
+        $position = '';
+
         // Button position
         if ($config->get('scroll_to_top_position') == 1) {
-            $position = "#back-top { right:40px; }";
+            $position = "#back-top { left:20px !important; }";
+        }
+
+        if ($config->get('scroll_to_top_position') == 2) {
+            $position = "#back-top { left:50% !important; margin:0px !important;}";
         }
 
         if ($config->get('scroll_to_top_position') == 3) {
-            $position = "#back-top { left:50%;margin:0px;}";
+            $position = "#back-top { right:20px !important; }";
         }
 
         // Display label
         if ($config->get('scroll_to_top_display_text') == FALSE) {
-            $display = "span#link {display : none;}";
+            $display = "span#link {display : none !important;}";
         } else {
             $display = "";
         }
 
         // background color on hover
-        $bgcolor = "#back-top span#button { background-color: " . $config->get('scroll_to_top_bg_color_out', '#555555') . ";}";
-        $bgcolor .= " #back-top span#button:hover {opacity:1;filter:alpha(opacity = 1);background-color: " . $config->get('scroll_to_top_bg_color_hover', '#777777') . ";}";
-        $css = $position;
+        $bgcolor = "#back-top span#button { background-color: " . $config->get('scroll_to_top_bg_color_out', '#555555') . " !important;}";
+        $bgcolor .= " #back-top span#button:hover {opacity:1;filter:alpha(opacity = 1) !important;background-color: " . $config->get('scroll_to_top_bg_color_hover', '#777777') . " !important;}";
+
+        $css .= $position;
         $css .= $bgcolor;
         $css .= $display;
 
-//        if ($css != '') {
-//            $attachments['#attached']['html_head'][] = [
-//                [
-//                    '#tag' => 'style',
-//                    '#value' => '#backtotop {' . $css . '}' . $bgcolor,
-//                ],
-//                'css'
-//            ];
-//        }
 
-        $variables['#attached']['drupalSettings'] = array(
-            'data' => [ 'label' => $config->get('scroll_to_top_label')],
-            'type' => 'inline',
-            'css' => $css
-        );
+        $variables['#attached']['html_head'][] = [
+            [
+                '#tag' => 'style',
+                '#value' => '#backtotop {' . $css . '}' . $bgcolor . $position . $display,
+            ], 'css'
+        ];
+
+
+        $variables['#attached']['drupalSettings']['scroll_to_top'] = [
+            'type' => 'setting',
+            'data' => array(
+            'label' => t($config->get('scroll_to_top_label'))
+        )
+        ];
+      
+
+
+//        $variables['#attached']['drupalSettings']['scroll_to_top'] = array(
+//            'data' => ['label' => $config->get('scroll_to_top_label')],
+//            'type' => 'inline'
+//        );
 
 //        $variables['#attached']['library'] = [
 //            'type' => 'setting',

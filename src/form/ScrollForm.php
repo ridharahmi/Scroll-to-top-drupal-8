@@ -51,18 +51,21 @@ class ScrollForm extends ConfigFormBase
             ),
             '#default_value' => $config->get('scroll_to_top_position'),
         );
-        $form['scroll_to_top_bg_color_hover'] = array(
-            '#type' => 'color',
-            '#title' => $this->t('Background color on mouse hover.'),
-            '#description' => $this->t('Button background color on mouse over default #777777'),
-            '#default_value' => $config->get('scroll_to_top_bg_color_hover'),
-        );
+
         $form['scroll_to_top_bg_color_out'] = array(
             '#type' => 'color',
             '#title' => $this->t('Background color on mouse out.'),
             '#description' => $this->t('Button background color on mouse over default #555555'),
             '#default_value' => $config->get('scroll_to_top_bg_color_out'),
         );
+
+        $form['scroll_to_top_bg_color_hover'] = array(
+            '#type' => 'color',
+            '#title' => $this->t('Background color on mouse hover.'),
+            '#description' => $this->t('Button background color on mouse over default #777777'),
+            '#default_value' => $config->get('scroll_to_top_bg_color_hover'),
+        );
+
         $form['scroll_to_top_display_text'] = array(
             '#type' => 'checkbox',
             '#title' => $this->t('Display label'),
