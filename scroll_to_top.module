@@ -40,26 +40,32 @@ function scroll_to_top_preprocess_page(&$variables)
         $css .= $bgcolor;
         $css .= $display;
 
-        if ($css != '') {
-            $attachments['#attached']['html_head'][] = [
-                [
-                    '#tag' => 'style',
-                    '#value' => '#backtotop {' . $css . '}' . $bgcolor,
-                ],
-                'css'
-            ];
-        }
+//        if ($css != '') {
+//            $attachments['#attached']['html_head'][] = [
+//                [
+//                    '#tag' => 'style',
+//                    '#value' => '#backtotop {' . $css . '}' . $bgcolor,
+//                ],
+//                'css'
+//            ];
+//        }
 
-        /*$variables['#attached']['js'][] = [
-            'type' => 'setting',
-            'data' => array(
-                'label' => t($config->get('scroll_to_top_label'))
-            )
-        ];
-        $variables['#attached']['css'][] = [
-            'data' => $css ,
-            'type' => 'inline'
-        ];*/
+        $variables['#attached']['drupalSettings'] = array(
+            'data' => [ 'label' => $config->get('scroll_to_top_label')],
+            'type' => 'inline',
+            'css' => $css
+        );
+
+//        $variables['#attached']['library'] = [
+//            'type' => 'setting',
+//            'data' => array(
+//                'label' => t($config->get('scroll_to_top_label'))
+//            )
+//        ];
+//        $variables['#attached']['css'][] = [
+//            'data' => $css ,
+//            'type' => 'inline'
+//        ];
 
     }
 }

@@ -43,7 +43,7 @@ body {
 	background-position: center center;
 	background-repeat: no-repeat;
 	
-	background-image: url('up-arrow.png') ;
+	background-image: url('../img/up-arrow.png') ;
 	opacity:0.8;
 	filter:alpha(opacity = 80);
 	/* rounded corners */
