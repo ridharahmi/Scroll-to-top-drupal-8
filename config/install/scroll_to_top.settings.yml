@@ -1,6 +1,10 @@
 scroll_to_top_label: 'Back To Top'
-scroll_to_top_position: 1
+scroll_to_top_position: 3
+scroll_to_top_padding: '25px'
+scroll_to_top_bd_radius: '8px'
+scroll_to_top_opacity: '0.8'
 scroll_to_top_bg_color_hover: '#777777'
 scroll_to_top_bg_color_out: '#555555'
+scroll_to_top_bd_color: '#000000'
 scroll_to_top_display_text: true
 scroll_to_top_enable_admin_theme: true

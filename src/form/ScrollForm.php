@@ -65,6 +65,37 @@ class ScrollForm extends ConfigFormBase
             '#description' => $this->t('Button background color on mouse over default #777777'),
             '#default_value' => $config->get('scroll_to_top_bg_color_hover'),
         );
+        $form['scroll_to_top_bd_color'] = array(
+            '#type' => 'color',
+            '#title' => $this->t('border color button.'),
+            '#description' => $this->t('Border color default #000000'),
+            '#default_value' => $config->get('scroll_to_top_bd_color'),
+        );
+
+
+        $form['scroll_to_top_padding'] = array(
+            '#type' => 'textfield',
+            '#title' => $this->t('Padding Button'),
+            '#default_value' => $config->get('scroll_to_top_padding'),
+            '#description' => $this->t('Padding Button default 25px'),
+            '#size' => 15,
+        );
+
+        $form['scroll_to_top_bd_radius'] = array(
+            '#type' => 'textfield',
+            '#title' => $this->t('Border Radius'),
+            '#default_value' => $config->get('scroll_to_top_bd_radius'),
+            '#description' => $this->t('Border Radius Button default 10px '),
+            '#size' => 15,
+        );
+
+        $form['scroll_to_top_opacity'] = array(
+            '#type' => 'textfield',
+            '#title' => $this->t('Opacity'),
+            '#default_value' => $config->get('scroll_to_top_opacity'),
+            '#description' => $this->t('Opacity button default 0.8'),
+            '#size' => 6,
+        );
 
         $form['scroll_to_top_display_text'] = array(
             '#type' => 'checkbox',
@@ -102,6 +133,10 @@ class ScrollForm extends ConfigFormBase
             ->set('scroll_to_top_position', $form_values['scroll_to_top_position'])
             ->set('scroll_to_top_bg_color_hover', $form_values['scroll_to_top_bg_color_hover'])
             ->set('scroll_to_top_bg_color_out', $form_values['scroll_to_top_bg_color_out'])
+            ->set('scroll_to_top_bd_color', $form_values['scroll_to_top_bd_color'])
+            ->set('scroll_to_top_padding', $form_values['scroll_to_top_padding'])
+            ->set('scroll_to_top_bd_radius', $form_values['scroll_to_top_bd_radius'])
+            ->set('scroll_to_top_opacity', $form_values['scroll_to_top_opacity'])
             ->set('scroll_to_top_display_text', $form_values['scroll_to_top_display_text'])
             ->set('scroll_to_top_enable_admin_theme', $form_values['scroll_to_top_enable_admin_theme'])
             ->save();

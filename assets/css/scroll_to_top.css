@@ -29,14 +29,12 @@ Back to top button
 
 /* arrow icon (span tag) */
 #back-top span#button, #back-top-prev span#button-prev {
-    width: 50px;
-    height: 50px;
+    padding: 25px;
     display: block;
     margin-bottom: 7px;
     background-color: #ddd;
     background-position: center center;
     background-repeat: no-repeat;
-
     background-image: url('../img/up-arrow.png');
     opacity: 0.8;
     filter: alpha(opacity=80);
@@ -48,6 +46,7 @@ Back to top button
     -webkit-transition: 1s;
     -moz-transition: 1s;
     transition: 1s;
+    border: 1px solid #000000;
 }
 
 #back-top a:hover span#button, #back-top-prev a:hover span#button-prev {

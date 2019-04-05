@@ -18,37 +18,41 @@ function scroll_to_top_preprocess_page(&$variables)
 
         //building the css style
         $css = '';
-        $position = '';
 
         // Button position
         if ($config->get('scroll_to_top_position') == 1) {
-            $position = "#back-top { left:20px !important; }";
+            $css .= "#back-top { left:20px !important; }";
         }
 
         if ($config->get('scroll_to_top_position') == 2) {
-            $position = "#back-top { left:50% !important; margin:0px !important;}";
+            $css .= "#back-top { left:50% !important; margin:0px !important;}";
         }
 
         if ($config->get('scroll_to_top_position') == 3) {
-            $position = "#back-top { right:20px !important; }";
+            $css .= "#back-top { right:20px !important; }";
         }
 
         // Display label
         if ($config->get('scroll_to_top_display_text') == FALSE) {
-            $display = "span#link {display : none !important;}";
+            $css .= "span#link {display : none !important;}";
         } else {
-            $display = "";
+            $css .= "";
         }
 
-        // background color on hover
-        $bgcolor = "#back-top span#button { background-color: " . $config->get('scroll_to_top_bg_color_out', '#555555') . " !important;}";
-        $bgcolor .= " #back-top span#button:hover {opacity:1;filter:alpha(opacity = 1) !important;background-color: " . $config->get('scroll_to_top_bg_color_hover', '#777777') . " !important;}";
+        // background color , hover , border
+        $css .= "#back-top span#button { background-color: " . $config->get('scroll_to_top_bg_color_out', '#555555') . " !important;}";
+        $css .= " #back-top span#button:hover {opacity:1;filter:alpha(opacity = 1) !important;background-color: " . $config->get('scroll_to_top_bg_color_hover', '#777777') . " !important;}";
+        $css .= "#back-top span#button { border: 1px solid " . $config->get('scroll_to_top_bd_color', '#000000') . " !important;}";
 
+        // button padding, border-radius, opacity
+        $css .= "#back-top span#button { padding: " . $config->get('scroll_to_top_padding', '25px') . " !important;}";
+        $css .= "#back-top span#button { border-radius: " . $config->get('scroll_to_top_bd_radius', '8px') . " !important;}";
+        $css .= "#back-top span#button { opacity: " . $config->get('scroll_to_top_opacity', '0.8') . " !important;}";
 
         $variables['#attached']['html_head'][] = [
             [
                 '#tag' => 'style',
-                '#value' => '#backtotop {' . $css . '}' . $bgcolor . $position . $display,
+                '#value' => $css,
             ],
             'css'
         ];
