@@ -9,3 +9,4 @@ scroll_to_top_style:
 
   dependencies:
     - core/jquery
+    - core/drupalSettings

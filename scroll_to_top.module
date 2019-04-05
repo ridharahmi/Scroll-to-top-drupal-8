@@ -44,43 +44,15 @@ function scroll_to_top_preprocess_page(&$variables)
         $bgcolor = "#back-top span#button { background-color: " . $config->get('scroll_to_top_bg_color_out', '#555555') . " !important;}";
         $bgcolor .= " #back-top span#button:hover {opacity:1;filter:alpha(opacity = 1) !important;background-color: " . $config->get('scroll_to_top_bg_color_hover', '#777777') . " !important;}";
 
-        $css .= $position;
-        $css .= $bgcolor;
-        $css .= $display;
-
 
         $variables['#attached']['html_head'][] = [
             [
                 '#tag' => 'style',
                 '#value' => '#backtotop {' . $css . '}' . $bgcolor . $position . $display,
-            ], 'css'
+            ],
+            'css'
         ];
-
-
-        $variables['#attached']['drupalSettings']['scroll_to_top'] = [
-            'type' => 'setting',
-            'data' => array(
-            'label' => t($config->get('scroll_to_top_label'))
-        )
-        ];
-      
-
-
-//        $variables['#attached']['drupalSettings']['scroll_to_top'] = array(
-//            'data' => ['label' => $config->get('scroll_to_top_label')],
-//            'type' => 'inline'
-//        );
-
-//        $variables['#attached']['library'] = [
-//            'type' => 'setting',
-//            'data' => array(
-//                'label' => t($config->get('scroll_to_top_label'))
-//            )
-//        ];
-//        $variables['#attached']['css'][] = [
-//            'data' => $css ,
-//            'type' => 'inline'
-//        ];
+        $variables['#attached']['drupalSettings']['label'] = t($config->get('scroll_to_top_label'));
 
     }
 }

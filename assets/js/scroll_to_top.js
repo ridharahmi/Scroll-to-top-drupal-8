@@ -4,8 +4,10 @@
         attach: function (context, settings) {
             // append  back to top link top body if it is not
             var exist = jQuery('#back-top').length; // exist = 0 if element doesn't exist
+            var label = drupalSettings.label;
+
             if (exist == 0) { // this test is for fixing the ajax bug
-                $("body").append("<p id='back-top'><a href='#top'><span id='button'></span><span id='link'>" + drupalSettings.label + "</span></a></p>");
+                $("body").append("<p id='back-top'><a href='#top'><span id='button'></span><span id='link'>" + label + "</span></a></p>");
             }
             // Preview function
             $("scrolltotop-form").on('change', 'input', function () {
