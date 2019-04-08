@@ -1,4 +1,3 @@
 view scroll to top:
   title: 'View unpublished scroll to top'
   description: 'Users with this permission can view scroll to top that are unpublished'
-  restrict access: FALSE

@@ -1,0 +1,24 @@
+{
+  "name": "drupal/scroll_tot_op",
+  "description": "Scroll to top button",
+  "type": "drupal-module",
+  "homepage": "https://drupal.org/project/scroll_tot_op",
+  "authors": [
+    {
+      "name": "Ridha Rahmi",
+      "email": "ridha.rahmmi@hotmail.com",
+      "homepage": "https://www.drupal.org/u/ridha-rahmi",
+      "role": "Web Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://drupal.org/project/scroll_tot_op",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "https://cgit.drupalcode.org/scroll_tot_op"
+  },
+  "license": "GPL-1.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "scrolltotop/scrolltotoplib": "~1.0"
+  }
+}
